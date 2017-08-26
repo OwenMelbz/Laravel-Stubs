@@ -1,13 +1,15 @@
-# Laravel 5.5.X Front-end Preset for UIKit 3 Beta
+# Laravel Stub Helper
 
-Adds a preset for UIKit 3 scaffolding on new Laravel 5.5+ projects, will add individual SASS components and import the UIKit 3 core javascript.
+We often find outselves having to repeat the same boilerplating when creating new files such as javascript components, blade templates etc.
+
+This package aims to help save your brain cells for the more important things in life (like pizza) by enabling you scaffold the things you're always repeating within a project by taking influence from the other `make:` commands.
 
 
 ## Usage
 
-1- Install via composer `composer require laravel-frontend-presets/uikit3`.
+1- Install via composer `composer require owenmelbz/laravel-stubs`.
 
-2- The package should use laravels new auto discovery, if not however you can manually register the service provider - typically done inside the `app.php` providers array e.g `LaravelFrontendPresets\UIKit3Preset\UIKit3PresetServiceProvider::class`.
+2- The package should use laravels new auto discovery, if not however you can manually register the service provider - typically done inside the `app.php` providers array e.g `OwenMelbz\LaravelStubs\StubsServiceProvider::class`.
 
 3- Run `php artisan preset uikit3` this will generate the js and scss needed.
 

@@ -12,7 +12,7 @@ class StubsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:template
+    protected $signature = 'make:a
         { type : what type of file do you want? }
         { name : component name? }
         { --f|force : Overwrite existing files without confirmation }
