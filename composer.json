@@ -1,0 +1,30 @@
+{
+    "name": "owenmelbz/laravel-stubs",
+    "description": "Laravel 5.5.X Front-end preset for UIKit 3.",
+    "keywords": ["laravel", "stubs", "templates"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Owen Melbourne",
+            "email": "owenmelbz@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "OwenMelbz\\LaravelStubs\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OwenMelbz\\LaravelStubs\\StubsPresetServiceProvider"
+            ]
+        }
+    }
+}
