@@ -43,7 +43,7 @@ return [
     ],
 
     /**
-     * Creates a basic blade view
+     * Creates a basic config file
      */
     'config' => [
         'stub' => 'config.php',
