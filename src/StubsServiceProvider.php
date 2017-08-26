@@ -19,6 +19,14 @@ class StubsServiceProvider extends ServiceProvider
         }
 
         $this->commands([StubsCommand::class]);
+
+        $this->publishes([
+            __DIR__.'/config/template_stubs.php' => config_path('template_stubs.php'),
+        ], 'stubs-config');
+
+        $this->publishes([
+            __DIR__.'/stubs' => resource_path('stubs'),
+        ], 'stubs-stubs');
     }
 
     /**

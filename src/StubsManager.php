@@ -16,9 +16,7 @@ class StubsManager
 
     public function __construct()
     {
-        $this->stubs = collect(
-            config('template_stubs')
-        );
+        $this->stubs = config('template_stubs');
     }
 
     public function getName()
@@ -40,13 +38,11 @@ class StubsManager
 
     public function setType($type)
     {
-        $this->stub = $this->stubs->first(function ($stub) use ($type) {
-            return $type == $stub['name'];
-        });
-
-        if (!$this->stub) {
+        if (!array_key_exists($type, $this->stubs)) {
             throw new Exception('Cannot find a stub with the name of ' . $type);
         }
+
+        $this->stub = $this->stubs[$type];
 
         $this->type = $type;
 
@@ -56,7 +52,7 @@ class StubsManager
     public function convertStubs($forceOverwrite = false)
     {
         // We see if the user has a custom stub
-        $userStub = resource_path('vendor/stubs/' . $this->stub['stub']);
+        $userStub = resource_path('stubs/' . $this->stub['stub']);
         $vendorStub = __DIR__ . '/stubs/' . $this->stub['stub'];
 
         $stubPath = file_exists($userStub) ? $userStub : $vendorStub;
