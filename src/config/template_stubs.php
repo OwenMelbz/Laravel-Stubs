@@ -35,6 +35,14 @@ return [
     ],
 
     /**
+     * Creates a basic es6 module
+     */
+    'es6-module' => [
+        'stub' => 'es6-module.js',
+        'output_path' => resource_path('assets/js/components'),
+    ],
+
+    /**
      * Creates a basic blade view
      */
     'blade' => [
