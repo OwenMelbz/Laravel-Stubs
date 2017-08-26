@@ -12,6 +12,15 @@ return [
     ],
 
     /**
+    * Creates a basic react component
+    */
+    [
+        'name' => 'react',
+        'stub' => 'react-component.js',
+        'output_path' => resource_path('assets/js/components'),
+    ],
+
+    /**
     * Creates a .vue component
     */
     [

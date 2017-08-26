@@ -32,8 +32,6 @@ class StubsServiceProvider extends ServiceProvider
             return false;
         }
 
-        $this->loadViewsFrom(__DIR__.'/stubs', 'stubs');
-
         $this->mergeConfigFrom(
             __DIR__.'/config/template_stubs.php', 'template_stubs'
         );
