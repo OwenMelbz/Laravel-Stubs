@@ -2,6 +2,7 @@
 
 namespace OwenMelbz\LaravelStubs;
 
+use Exception;
 use Illuminate\Console\Command;
 
 class StubsCommand extends Command
@@ -11,7 +12,11 @@ class StubsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:template {type} {name}';
+    protected $signature = 'make:template
+        { type : what type of file do you want? }
+        { name : component name? }
+        { --f|force : Overwrite existing files without confirmation }
+    ';
 
     /**
      * The console command description.
@@ -21,31 +26,21 @@ class StubsCommand extends Command
     protected $description = 'Create a new singular file based off a stub template';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
      */
     public function handle()
     {
-        $stubManager = new StubManager();
+        $manager = new StubsManager();
 
         try {
-            $stubManager->convertStubs(
-                $this->argument->type,
-                $this->argument->name
-            );
+            $path = $manager
+                ->setType($this->argument('type'))
+                ->setName($this->argument('name'))
+                ->convertStubs($this->option('force'));
 
-            return $this->info($stubManager->lastConversion());
+            return $this->info('File created at ' . $path);
         } catch (Exception $e) {
             return $this->error($e->getMessage());
         }

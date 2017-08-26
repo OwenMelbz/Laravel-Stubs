@@ -1,0 +1,7 @@
+/*
+* @placeholder
+*/
+
+jQuery(function ($) {
+
+});

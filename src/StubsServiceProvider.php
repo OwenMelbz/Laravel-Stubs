@@ -14,9 +14,11 @@ class StubsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
-            //$this->command(StubsCommand::class);
+        if (!$this->app->runningInConsole()) {
+            return false;
         }
+
+        $this->commands([StubsCommand::class]);
     }
 
     /**
@@ -26,9 +28,15 @@ class StubsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->runningInConsole()) {
-            //$this->loadViewsFrom(__DIR__.'/stubs', 'stubs');
+        if (!$this->app->runningInConsole()) {
+            return false;
         }
+
+        $this->loadViewsFrom(__DIR__.'/stubs', 'stubs');
+
+        $this->mergeConfigFrom(
+            __DIR__.'/config/template_stubs.php', 'template_stubs'
+        );
     }
 
 }
