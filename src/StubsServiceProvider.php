@@ -15,7 +15,7 @@ class StubsServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $this->command(StubsCommand::class);
+            //$this->command(StubsCommand::class);
         }
     }
 
@@ -27,7 +27,7 @@ class StubsServiceProvider extends ServiceProvider
     public function register()
     {
         if ($this->app->runningInConsole()) {
-            $this->loadViewsFrom(__DIR__.'/stubs', 'stubs');
+            //$this->loadViewsFrom(__DIR__.'/stubs', 'stubs');
         }
     }
 
