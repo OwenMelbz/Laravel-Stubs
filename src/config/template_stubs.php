@@ -42,4 +42,12 @@ return [
         'output_path' => resource_path('views'),
     ],
 
+    /**
+     * Creates a basic blade view
+     */
+    'config' => [
+        'stub' => 'config.php',
+        'output_path' => config_path(),
+    ],
+
 ];
