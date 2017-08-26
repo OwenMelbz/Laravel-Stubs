@@ -1,6 +1,6 @@
 {
     "name": "owenmelbz/laravel-stubs",
-    "description": "Laravel 5.5.X Front-end preset for UIKit 3.",
+    "description": "Easily store stubs for your project to reuse whenever needed.",
     "keywords": ["laravel", "stubs", "templates"],
     "license": "MIT",
     "authors": [
@@ -23,7 +23,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "OwenMelbz\\LaravelStubs\\StubsPresetServiceProvider"
+                "OwenMelbz\\LaravelStubs\\StubsServiceProvider"
             ]
         }
     }
