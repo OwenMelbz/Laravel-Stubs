@@ -31,6 +31,8 @@ The stubs are loaded in a waterfall style - so if you have your own file inside 
 
 You can either use the same filename that is defined within the `stub` key of the config e.g `vue-component.js` and we'll use that. Or you can create a file of any name and change the `stub` key in a published config file.
 
+If you want to modify every stub in the package, you can publish all the stubs in 1 go using `php artisan vendor:publish --tag=stubs-stubs` which will place them all in your `resources/stubs` folder.
+
 ## Adding custom stubs
 
 You can either publish the default config and modify it, or create your own called `template_stubs.php` - if you wanted you could even use `php artisan make:a config template_stubs` and start adding your own.
