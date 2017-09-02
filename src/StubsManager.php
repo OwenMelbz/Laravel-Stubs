@@ -89,6 +89,10 @@ class StubsManager
 
         $newContent = str_replace($this->stub['placeholder'], $this->getName(), $stubContent);
 
+        if (!file_exists($this->stub['output_path'])) {
+            mkdir($this->stub['output_path'], 0755, true);
+        }
+
         if (!file_put_contents($outputFile, $newContent)) {
             throw new Exception('Could not write to ' . $outputFile);
         }
