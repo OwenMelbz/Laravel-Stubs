@@ -12,7 +12,7 @@ Vue.component('@placeholder', {
 
     },
 
-    methods {
+    methods: {
 
     },
 
