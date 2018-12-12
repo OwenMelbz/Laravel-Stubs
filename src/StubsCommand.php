@@ -15,6 +15,7 @@ class StubsCommand extends Command
     protected $signature = 'make:a
         { type : what type of file do you want? }
         { name : component name? }
+        { params? : params to override in stub file }
         { --f|force : Overwrite existing files without confirmation }
     ';
 
@@ -38,6 +39,7 @@ class StubsCommand extends Command
             $path = $manager
                 ->setType($this->argument('type'))
                 ->setName($this->argument('name'))
+                ->setParams($this->argument('params') ?? '')
                 ->convertStubs($this->option('force'));
 
             return $this->info('File created at ' . $path);

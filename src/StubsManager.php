@@ -10,6 +10,8 @@ class StubsManager
 
     protected $name;
 
+    protected $params;
+
     protected $type;
 
     protected $stubs;
@@ -29,6 +31,28 @@ class StubsManager
         $this->name = $name;
 
         return $this;
+    }
+
+    public function setParams($params = '')
+    {
+        $array_params = [];
+
+        if (!empty($params)) {
+            $explode = explode('|', $params);
+            foreach ($explode as $row) {
+                $expl = explode(':', $row);
+                $array_params[$expl[0]] = $expl[1];
+            }
+        }
+
+        $this->params = $array_params;
+
+        return $this;
+    }
+
+    public function getParams()
+    {
+        return $this->params;
     }
 
     public function getType()
@@ -88,6 +112,12 @@ class StubsManager
         }
 
         $newContent = str_replace($this->stub['placeholder'], $this->getName(), $stubContent);
+
+        if (!empty($this->getParams())) {
+            foreach ($this->getParams() as $key => $stub) {
+                $newContent = str_replace($key, $stub, $newContent);
+            }
+        }
 
         if (!file_exists($this->stub['output_path'])) {
             mkdir($this->stub['output_path'], 0755, true);
