@@ -58,4 +58,11 @@ return [
         'output_path' => config_path(),
     ],
 
+    /**
+     * Creates a basic test file
+     */
+    'basic-test' => [
+        'stub' => 'basic-test.php',
+        'output_path' => base_path('tests'),
+    ],
 ];
