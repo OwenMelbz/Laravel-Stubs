@@ -9,9 +9,6 @@
             "email": "owenmelbz@gmail.com"
         }
     ],
-    "require": {
-        "illuminate/support": "~5.0"
-    },
     "require-dev": {
         "phpunit/phpunit": "~4.5"
     },
